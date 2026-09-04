@@ -1,11 +1,77 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+  { n: '01', title: 'Diagnóstico técnico', text: 'Evaluación de equipos e instalaciones para detectar riesgos, fallas y oportunidades de mejora.' },
+  { n: '02', title: 'Planes preventivos', text: 'Diseño de rutinas, frecuencias, responsables y controles para aumentar la disponibilidad de los activos.' },
+  { n: '03', title: 'Gestión del mantenimiento', text: 'Organización de repuestos, contratistas, reportes e indicadores bajo las normas ISO 9001:2018  de calidad.' },
+];
+const expertise = ['Mantenimiento preventivo y correctivo','Electricidad industrial','Diagnóstico de fallas','PLC y controles eléctricos','ISO 9001:2018 y 5S','Coordinación de técnicos','Gestión de repuestos','Software Fracttal'];
 ---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Ángel De León, asesor y coordinador de mantenimiento industrial en Santo Domingo." />
+    <title>Ángel De León | Asesor de Mantenimiento Industrial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="#inicio"><span>AD</span> ÁNGEL DE LEÓN</a>
+      <nav><a href="#experiencia">Experiencia</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></nav>
+      <a class="mini-cta" href="/CV_Angel_De_Leon.pdf" download>Descargar CV</a>
+    </header>
 
-<Layout>
-	<Welcome />
-</Layout>
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">SANTO DOMINGO · REPÚBLICA DOMINICANA</p>
+          <h1>Mantenimiento que convierte experiencia en <em>continuidad.</em></h1>
+          <p class="lead">Asesor y coordinador de mantenimiento industrial con más de 18 años de experiencia en sistemas eléctricos, equipos de producción y planificación preventiva.</p>
+          <div class="actions">
+            <a class="primary" href="https://wa.me/18493600270" target="_blank" rel="noreferrer">Solicitar asesoría <span>↗</span></a>
+            <a class="secondary" href="/CV_Angel_De_Leon.pdf" download>Descargar CV ↓</a>
+          </div>
+        </div>
+        <aside class="metric-card">
+          <div class="ring"><strong>18+</strong><span>años de<br/>experiencia</span></div>
+          <div class="rule"></div>
+          <p>Coordinación de mantenimiento de equipos de producción desde 2007.</p>
+          <small>PREVENIR · CORREGIR · MEJORAR</small>
+        </aside>
+      </section>
+
+      <section class="proof" id="experiencia">
+        <p class="eyebrow">EXPERIENCIA QUE RESPALDA</p>
+        <div class="proof-grid">
+          <h2>De la falla inesperada a una operación planificada.</h2>
+          <div><p>Experiencia coordinando mantenimiento eléctrico y mecánico de máquinas de producción, empaque, compresores, iluminación y ventilación.</p><p>coordinar y planificar el trabajo de instalacion, mantenimiento preventivo y correctivo con los contratista , gestión de repuestos a maquinas de producion segun el manual del fabricante , levantamientos eléctricos y reportes bajo la norma ISO 9001-2018 y metodología 5S.</p></div>
+        </div>
+        <div class="tags">{expertise.map((item) => <span>{item}</span>)}</div>
+      </section>
+
+      <section class="services" id="servicios">
+        <div class="section-heading"><p class="eyebrow">SERVICIOS</p><h2>Soluciones prácticas para cuidar sus activos.</h2></div>
+        <div class="service-grid">{services.map((s) => <article><span>{s.n}</span><h3>{s.title}</h3><p>{s.text}</p></article>)}</div>
+      </section>
+
+      <section class="career">
+        <div><p class="eyebrow">TRAYECTORIA</p><h2>Centro Cuesta Nacional</h2><p>Coordinador de mantenimiento de equipos de producción</p></div>
+        <strong>2007 — Actualidad</strong>
+      </section>
+
+      <section class="contact" id="contacto">
+        <p class="eyebrow">HABLEMOS DE SU OPERACIÓN</p>
+        <h2>¿Necesita organizar, prevenir o mejorar su mantenimiento?</h2>
+        <div class="actions"><a class="primary light" href="https://wa.me/18493600270" target="_blank" rel="noreferrer">Escribir por WhatsApp ↗</a><a class="mail" href="mailto:angelde0270@gmail.com">angelde0270@gmail.com</a></div>
+      </section>
+    </main>
+    <footer><span>© {new Date().getFullYear()} Ángel De León Arias</span><span>Santo Domingo, República Dominicana</span></footer>
+  </body>
+</html>
+
+<style>
+  :root{--ink:#0b1821;--navy:#0f2734;--cyan:#0aa6b6;--ice:#eaf5f6;--paper:#f7f8f6;--line:#cbd7da}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,system-ui,sans-serif}header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,76px);border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(247,248,246,.94);backdrop-filter:blur(16px);z-index:5}.brand{font-family:'Space Grotesk';font-weight:700;letter-spacing:.08em;color:var(--ink);text-decoration:none}.brand span{display:inline-grid;place-items:center;width:36px;height:36px;background:var(--ink);color:white;margin-right:10px}nav{display:flex;gap:28px}nav a,.mail{color:inherit;text-decoration:none;font-size:.9rem;font-weight:600}.mini-cta,.primary,.secondary{display:inline-flex;align-items:center;gap:18px;text-decoration:none;font-weight:800;padding:14px 20px}.mini-cta,.primary{background:var(--cyan);color:#041419}.hero{min-height:650px;padding:90px clamp(22px,7vw,110px);display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.65fr);gap:8vw;align-items:center;background:linear-gradient(115deg,transparent 0 67%,var(--ice) 67%)}.eyebrow{font-size:.75rem;letter-spacing:.18em;font-weight:800;color:#177987}.hero h1{font-family:'Space Grotesk';font-size:clamp(3rem,6.6vw,6.3rem);line-height:.94;letter-spacing:-.055em;margin:22px 0 30px;max-width:1000px}.hero h1 em{font-style:normal;color:var(--cyan)}.lead{max-width:700px;font-size:1.16rem;line-height:1.75;color:#42545e}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.secondary{color:var(--ink);border:1px solid var(--ink)}.metric-card{background:var(--navy);color:white;padding:40px 34px;box-shadow:18px 18px 0 var(--cyan)}.ring{width:190px;height:190px;border:1px solid #53727b;border-radius:50%;display:grid;place-content:center;text-align:center;margin:auto}.ring strong{font-family:'Space Grotesk';font-size:4.2rem;color:#48d3df;line-height:1}.ring span{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}.rule{height:1px;background:#49626a;margin:34px 0}.metric-card p{line-height:1.7}.metric-card small{color:#5fd5de;letter-spacing:.12em}.proof,.services{padding:100px clamp(22px,7vw,110px)}.proof{background:white}.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:9vw}.proof h2,.section-heading h2,.contact h2{font-family:'Space Grotesk';font-size:clamp(2.2rem,4.4vw,4.4rem);line-height:1.04;letter-spacing:-.04em;margin:20px 0}.proof-grid>div{font-size:1.05rem;line-height:1.8;color:#4a5b64}.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px}.tags span{border:1px solid var(--line);padding:10px 14px;font-size:.85rem;font-weight:700}.section-heading{max-width:760px}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:52px}.service-grid article{padding:34px 30px 40px 0;border-right:1px solid var(--line);margin-right:30px}.service-grid article:last-child{border:0}.service-grid article>span{font-family:'Space Grotesk';color:var(--cyan);font-size:1.8rem}.service-grid h3{font-family:'Space Grotesk';font-size:1.45rem;margin:34px 0 12px}.service-grid p{line-height:1.7;color:#52616a}.career{margin:0 clamp(22px,7vw,110px) 100px;padding:40px;border:1px solid var(--line);display:flex;justify-content:space-between;align-items:end}.career h2{font-family:'Space Grotesk';font-size:2rem;margin:12px 0 4px}.career strong{color:var(--cyan)}.contact{padding:100px clamp(22px,7vw,110px);background:var(--navy);color:white}.contact h2{max-width:900px}.light{background:#54d8e2}.mail{color:white;align-self:center;margin-left:20px;border-bottom:1px solid #718990}footer{padding:28px clamp(22px,7vw,110px);display:flex;justify-content:space-between;font-size:.82rem;color:#5c6c74}@media(max-width:800px){header{height:70px}.brand{font-size:.8rem}.brand span{width:30px;height:30px}nav{display:none}.mini-cta{padding:10px 12px;font-size:.75rem}.hero{grid-template-columns:1fr;padding-top:62px;background:linear-gradient(160deg,transparent 0 70%,var(--ice) 70%)}.hero h1{font-size:clamp(3rem,14vw,5rem)}.metric-card{max-width:360px}.proof-grid,.service-grid{grid-template-columns:1fr}.service-grid article{border-right:0;border-bottom:1px solid var(--line);margin:0}.career{align-items:start;flex-direction:column;gap:24px}.mail{margin:12px 0 0}footer{gap:12px;flex-direction:column}}
+</style>
